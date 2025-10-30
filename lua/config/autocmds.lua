@@ -15,6 +15,7 @@
 --     end,
 -- })
 
+-- Force autopkg recipes to be interpretted as xml
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     pattern = "*.recipe", -- Adjust to your extension
     callback = function()
