@@ -21,3 +21,23 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         vim.bo.filetype = "xml"
     end,
 })
+
+-- Markdown
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.textwidth = 120
+        vim.opt_local.colorcolumn = "120"
+    end,
+})
+
+-- YAML
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "yml", "yaml", "yaml.ansible", "yaml.ghaction" },
+    callback = function()
+        vim.opt_local.expandtab = true
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.shiftwidth = 2
+    end,
+})
