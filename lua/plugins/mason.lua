@@ -12,7 +12,6 @@ return {
             "ruff",
             "shellcheck",
             "shfmt",
-            "prettier",
             "yamllint",
         },
     },
