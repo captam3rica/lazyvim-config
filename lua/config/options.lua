@@ -14,4 +14,5 @@ vim.opt.shiftwidth = 4 -- set the shift width
 vim.opt.tabstop = 4 -- number of spaces tabs count for
 vim.opt.wrap = true -- enable line wrap
 
-vim.treesitter.language.register("bash", "zsh")
+-- vim.treesitter.language.register("bash", "zsh")
+vim.treesitter.language.register("zsh", "zsh")
