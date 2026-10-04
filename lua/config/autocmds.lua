@@ -29,6 +29,8 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         vim.opt_local.textwidth = 120
         vim.opt_local.colorcolumn = "120"
+        vim.opt_local.formatoptions:append("t")
+        vim.opt_local.wrap = true
     end,
 })
 
@@ -51,5 +53,16 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.tabstop = 2
         vim.opt_local.softtabstop = 2
         vim.opt_local.shiftwidth = 2
+    end,
+})
+
+-- uv shabang as Python
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = "*",
+    callback = function(args)
+        local first = vim.api.nvim_buf_get_lines(args.buf, 0, 1, false)[1] or ""
+        if first:match("^#!.*/env%s%-S%s+uv%s+run%s+%-%-script") then
+            vim.bo[args.buf].filetype = "python"
+        end
     end,
 })

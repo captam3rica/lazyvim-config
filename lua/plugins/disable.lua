@@ -5,4 +5,5 @@ return {
     { "catppuccin/nvim", enabled = false },
     { "folke/tokyonight.nvim", enabled = false },
     { "Mofiqul/dracula.nvim", enabled = false },
+    -- { "MeanderingProgrammer/render-markdown.nvim", enabled = false },
 }
